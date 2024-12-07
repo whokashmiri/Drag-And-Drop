@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-red-800">
+    <div class="w-screen h-screen flex items-center justify-evenly">
+        <div id="left" class="w-2/6 min-h-96 border-dashed border-2 border-sky-500 ">
+            <div id="tile" class=" tile bg-black h-16 m-4 rounded-xl text-white flex align-center cursor-grab indent-4" draggable="true">list 1</div>
+            <div id="" class="tile bg-black h-16 rounded-xl  m-4 text-white flex align-center cursor-grab  indent-4" draggable="true">list 2</div>
+            <div id="tile" class="tile bg-black h-16  rounded-xl m-4 text-white flex align-center cursor-grab indent-4" draggable="true">list 3</div>
+            <div id="tile" class="tile bg-black  rounded-xl  h-16 m-4 text-white flex align-center cursor-grab indent-4"  draggable="true">list 4</div>
+
+        </div>
+        <div id="right" class="w-2/6 min-h-96  border-dashed border-2 border-sky-500"></div>
+    </div>
+<script>
+let tiles = document.querySelectorAll(".tile");
+let rightBox = document.getElementById("right");
+let leftBox = document.getElementById("left")
+
+
+for ( tile of tiles) 
+{ 
+  tile.addEventListener("dragstart", function(e)
+ { 
+  let selected = e.target; 
+ rightBox.addEventListener("dragover", function(e)
+  { 
+    e.preventDefault();
+
+   });
+   rightBox.addEventListener("drop", function(e)
+    { 
+      rightBox.appendChild(selected);
+     selected = null; 
+     }); 
+
+
+     leftBox.addEventListener("dragover", function(e)
+  { 
+    e.preventDefault();
+
+   });
+   leftBox.addEventListener("drop", function(e)
+    { 
+      leftBox.appendChild(selected);
+     selected = null; 
+     }); 
+     
+     });
+      }
+</script>
+    
+</body>
+</html>
