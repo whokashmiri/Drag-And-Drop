@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            maxHeight:{
+                '300': '300px',
+            },
+            margin: { '10-auto': '10px auto', },
+            borderColor: { 'custom': '#d1d1d1', },
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-black">
+    <div class="container w-[600px] px-6 py-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl">
+       <p class="font-semibold text-5xl mb-2">Enter You Text Or URL</p>
+       <input class="w-full h-14  border border-zinc-500 outline-none p-2 my-2.5 mb-5" placeholder="Text Or URL" type="text" name="" id="qrText">
+       <div class="img-box w-[200px] rounded-xl max-h-0 overflow-hidden transtion max-h-1s" id="imag">
+        <img class="w-full p-[10px]" src="" alt="" id="qr" >
+       </div>
+       <button onclick="generator()" class=" btn bg-red-300 pointer p-2 rounded-xl hover:bg-red-600   "> GENERATE QR CODE</button>
+    </div>
+    
+    
+    <script>
+        let imag= document.getElementById("imag")
+        let qr = document.getElementById("qr")
+        let qrText = document.getElementById("qrText")
+        let btn = document.getElementsByTagName("button")
+        function generator(){
+            if(qrText.value.length > 0){
+                qr.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+qrText.value;
+            imag.classList.add('max-h-300', 'm-10-auto', 'border', 'border-custom')
+            }else{
+               alert("Please Enter Something")
+            }
+            
+            
+        }
+
+    </script>
+</body>
+</html>
