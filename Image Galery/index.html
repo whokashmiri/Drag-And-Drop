@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+</head>
+<style>
+   *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+   }
+   body{
+    background: #131313;
+   }
+   .gallery {
+    width: 900px;
+    display: flex;
+    overflow-x: scroll;
+   }
+   .gallery div{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+    padding: 10px;
+    flex: none;
+   }
+   .gallery div img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: transform 0.5s;
+   }
+   .gallery::-webkit-scrollbar{
+    display: none;
+   }
+   .gallery-wrap{
+    display: flex;align-items: center;
+    justify-content: center;
+    margin: 10% auto;
+   }
+   #back , #next{
+    width: 50px;
+    cursor: pointer;
+    margin: 40px;
+   }
+   .gallery div img:hover{
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+   }
+
+</style>
+<body>
+    <div class="gallery-wrap">
+        <img src="./images/back.png" alt="" id="back">
+        <div class="gallery">
+            <div>
+                <span> <img src="https://images.pexels.com/photos/29696783/pexels-photo-29696783/free-photo-of-autumn-pathway-with-palm-trees-in-srinagar.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></span>
+                <span> <img src="https://images.pexels.com/photos/29656168/pexels-photo-29656168/free-photo-of-toddler-enjoying-outdoors-in-srinagar.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></span>
+                <span> <img src="https://images.pexels.com/photos/28855490/pexels-photo-28855490/free-photo-of-beautiful-hazratbal-shrine-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></span>
+                
+            </div>
+            <div>
+                <span> <img src="https://images.pexels.com/photos/15817086/pexels-photo-15817086/free-photo-of-men-photographing-kids-with-camera-and-smart-phone.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=22" alt=""></span>
+                <span> <img src="https://images.pexels.com/photos/16333025/pexels-photo-16333025/free-photo-of-man-in-a-hat-sitting-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></span>
+                <span> <img src="https://images.pexels.com/photos/15196861/pexels-photo-15196861/free-photo-of-woman-with-umbrella-in-forest-in-snow.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></span>
+            </div>
+        </div>
+        <img src="./images/next.png" alt="" id="next">
+    </div>
+ <script>
+    let scrollCon = document.querySelector(".gallery")
+    let back = document.getElementById("back")
+    let next = document.getElementById("next")
+    scrollCon.addEventListener("wheel",(e)=>{
+        e.preventDefault();
+        scrollCon.scrollLeft += e.deltaY;
+         scrollCon.style.scrollBehavior = "auto"
+    })
+    next.addEventListener("click",()=>{
+        scrollCon.style.scrollBehavior = "smooth"
+        scrollCon.scrollLeft +=900
+    })
+    back.addEventListener("click",()=>{
+          scrollCon.style.scrollBehavior = "smooth"
+        scrollCon.scrollLeft -=900
+    })
+ </script>
+    
+</body>
+</html>
