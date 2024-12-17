@@ -10,13 +10,12 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box ;
-        font-family: "Poppins" sans-serif;
+        font-family: "Poppins", sans-serif;
     }
-   body{
+    body{
         background-color: bisque;
     }
     .container{
-
         width: 100%;
         min-height: 100vh;
         background: linear-gradient(135deg ,#cf9aff , #95c0ff);
@@ -46,26 +45,32 @@
     .inp{
         position: relative;
         width: 100%;
-        max-width: 500px;
-        min-height: 150px;
-        background: #fff;
-        color: #333;
-        padding: 20px;
-        outline: none;
-        border-radius: 20px;
+        max-width: 500px; 
+        min-height: 150px; 
+        background: #fff; 
+        color: #333; 
+        padding: 20px; 
+        padding-bottom: 40px; /* Add padding to the bottom to avoid overlapping with the button */ 
+        outline: none; border-radius: 20px;
+    }
+    img{
+       height: 20px;
+        position: absolute;
+        bottom: 15px;
+        right: 15px; 
+        cursor: pointer;
     }
 </style>
 <body>
     <div class="container">
         <h1>Notes</h1>
-        <button class="btn">    Write</button>
+        <button class="btn">Write</button>
         <div class="notes">
             <!-- <p contenteditable="true" class="inp">
-                <button style="margin: 2px; padding: 5px; position: absolute; bottom: 15px; right: 15px; cursor: pointer;">Delete</button>
+                <button class="nbtn" style="margin: 2px; padding: 5px; position: absolute; bottom: 15px; right: 15px; cursor: pointer;">Delete</button>
             </p> -->
         </div>
    </div>
-
 
    <script src="./script.js"></script>
 </body>
